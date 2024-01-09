@@ -1,13 +1,54 @@
 //import logo from './logo.svg';
 import './App.css';
+import React, {useEffect, useState} from "react";
+import {getWeatherData} from "./mockdata.js";
 import { Button } from './Components/button/index.js'
+import { Textbox } from './Components/textbox/index.js';
 
 console.log("root called")
 
 function App() {
+
+  const [weatherData, setWeatherData] = useState(null);
+
+  /* today is a single object of weather data*/
+  const [today, setToday] = useState(null);
+
+  // Data fetching in useEffect
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getWeatherData();
+      setWeatherData(data);
+
+      const today = data.find(
+        (day) =>
+          day.dayOfWeek ===
+          new Date().toLocaleString("en-FI", {weekday: "long"})
+      );
+
+      if (!today) {
+        return;
+      }
+
+      setToday(today);
+    }
+    fetchData();
+  }, []);
+
+  if (!weatherData || !today) {
+    return null;
+  }
+
   return (
     <div className="App">
       <div className="main-view">
+
+      {/* Testing Textbox functionality */}
+      <span className='text-wrapper-6'>
+        <p>Tests:</p>
+      <Textbox weather={today.weatherType} />
+      </span>
+
       <div className="div">
         <Button
           className="button-instance"
@@ -35,7 +76,7 @@ function App() {
             {" "}
             <br />
             <br />
-            Hope you’re having good morning./It’s freezing today!
+            <Textbox weather={today.weatherType} />
           </span>
         </p> 
       </div>
