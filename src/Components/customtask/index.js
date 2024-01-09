@@ -1,0 +1,1 @@
+export { customTask } from "./components/customtask/layout.js"

@@ -1,7 +1,6 @@
 //import logo from './logo.svg';
 import './App.css';
 import { Button } from './Components/button/index.js'
-
 console.log("root called")
 
 function App() {
