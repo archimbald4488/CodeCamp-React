@@ -1,5 +1,6 @@
 //import logo from './logo.svg';
 import './App.css';
+import { Button } from './Components/index.js'
 
 console.log("Testing!")
 
@@ -36,11 +37,14 @@ function App() {
             <br />
             Hope you’re having good morning./It’s freezing today!
           </span>
-        </p>
+        </p> 
       </div>
     </div>
-    </div>
-  );
-}
+
+  </div>
+
+  )}
+      
+    
 
 export default App;
