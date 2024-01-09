@@ -2,7 +2,7 @@
 import './App.css';
 import { Button } from './Components/index.js'
 
-console.log("Testing!")
+console.log("root called")
 
 function App() {
   return (
