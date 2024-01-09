@@ -1,23 +1,23 @@
 import React from "react";
 import "./style.css";
 
-export const Textbox = (props) => {
-    const {weather} = props;
-    let message;
+export const Textbox = ({message, className}) => {
 
-    if (weather === "cloudy") {
-        message = "it's cloudy today!"
-    } else if (weather === "sunny") {
-        message = "Wear a hat! It's sunny."
-    } else if (weather === "raining") {
-        message = "Get an umbrella! It's raining."
+    let print;
+
+    if (message === "cloudy") {
+        print = "it's cloudy today!"
+    } else if (message === "sunny") {
+        print = "Wear a hat! It's sunny."
+    } else if (message === "raining") {
+        print = "Get an umbrella! It's raining."
     } else {
-        message = "No weather detected."
+        print = message;
     }
 
     return (
         <>
-        <p>{message}</p>
+        <p class={className}>{print}</p>
         </>
     );
 };

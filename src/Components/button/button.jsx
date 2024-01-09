@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 import React from "react";
 import "./style.css";
 
-export const Button = ({ text = "Button", variant, color, size, state, className, divClassName }) => {
+export const Button = ({ text = "Button", variant, color, size, state, className, divClassName, onClick }) => {
   return (
-    <button className={`button ${state} ${size} ${variant} ${color} ${className}`}>
+    <button className={`button ${state} ${size} ${variant} ${color} ${className}`} onClick={onClick}>
       <div className={`text-wrapper ${divClassName}`}>{text}</div>
     </button>
   );
@@ -16,4 +16,5 @@ Button.propTypes = {
   color: PropTypes.oneOf(["warning", "danger", "info", "success", "secondary", "primary"]),
   size: PropTypes.oneOf(["l", "m", "s"]),
   state: PropTypes.oneOf(["hovered", "disabled", "enabled"]),
+  onClick: PropTypes.func
 };

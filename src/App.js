@@ -2,8 +2,8 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
 import {getWeatherData} from "./mockdata.js";
-import { Button } from './Components/button/index.js'
 import { Textbox } from './Components/textbox/index.js';
+import { Todos } from './Components/todo/todos.jsx';
 
 console.log("root called")
 
@@ -46,20 +46,11 @@ function App() {
       {/* Testing Textbox functionality */}
       <span className='text-wrapper-6'>
         <p>Tests:</p>
-      <Textbox weather={today.weatherType} />
+      <Textbox className={null} message={today.weatherType} />
       </span>
 
       <div className="div">
-        <Button
-          className="button-instance"
-          color="primary"
-          divClassName="design-component-instance-node"
-          size="l"
-          state="enabled"
-          text="Todos"
-          variant="fill"
-        />
-        <p className="p">Here’s what you should do in today’s weather:</p>
+        <Todos />
         <div className="overlap-group">
           <div className="text-wrapper-2">+25°C</div>
           <div className="text-wrapper-3">Lappeenranta</div>
@@ -76,7 +67,7 @@ function App() {
             {" "}
             <br />
             <br />
-            <Textbox weather={today.weatherType} />
+            <Textbox className="text-wrapper-6" message={today.weatherType} />
           </span>
         </p> 
       </div>
