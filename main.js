@@ -1,12 +1,10 @@
-//import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Button } from "./Button";
+import "./style.css";
 
-console.log("Testing!")
-
-function App() {
+export const MainView = () => {
   return (
-    <div className="App">
-      <div className="main-view">
+    <div className="main-view">
       <div className="div">
         <Button
           className="button-instance"
@@ -39,8 +37,5 @@ function App() {
         </p>
       </div>
     </div>
-    </div>
   );
-}
-
-export default App;
+};
