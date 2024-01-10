@@ -1,1 +1,1 @@
-export { customTask } from "./components/customtask/layout.js"
+export { customTask } from "./customTask.jsx";
