@@ -1,23 +1,55 @@
 //import logo from './logo.svg';
 import './App.css';
-import { Button } from './Components/button/index.js';
+import React, {useEffect, useState} from "react";
+import {getWeatherData} from "./mockdata.js";
+import { Textbox } from './Components/textbox/index.js';
+import { Todos } from './Components/todo/todos.jsx';;
 console.log("root called")
 
 function App() {
+
+  const [weatherData, setWeatherData] = useState(null);
+
+  /* today is a single object of weather data*/
+  const [today, setToday] = useState(null);
+
+  // Data fetching in useEffect
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getWeatherData();
+      setWeatherData(data);
+
+      const today = data.find(
+        (day) =>
+          day.dayOfWeek ===
+          new Date().toLocaleString("en-FI", {weekday: "long"})
+      );
+
+      if (!today) {
+        return;
+      }
+
+      setToday(today);
+    }
+    fetchData();
+  }, []);
+
+  if (!weatherData || !today) {
+    return null;
+  }
+
   return (
     <div className="App">
       <div className="main-view">
+
+      {/* Testing Textbox functionality */}
+      <span className='text-wrapper-6'>
+        <p>Tests:</p>
+      <Textbox className={null} message={today.weatherType} />
+      </span>
+
       <div className="div">
-        <Button
-          className="button-instance"
-          color="primary"
-          divClassName="design-component-instance-node"
-          size="l"
-          state="enabled"
-          text="Todos"
-          variant="fill"
-        />
-        <p className="p">Here’s what you should do in today’s weather:</p>
+        <Todos />
         <div className="overlap-group">
           <div className="text-wrapper-2">+25°C</div>
           <div className="text-wrapper-3">Lappeenranta</div>
@@ -34,7 +66,7 @@ function App() {
             {" "}
             <br />
             <br />
-            Hope you’re having good morning./It’s freezing today!
+            <Textbox className="text-wrapper-6" message={today.weatherType} />
           </span>
         </p> 
       </div>
