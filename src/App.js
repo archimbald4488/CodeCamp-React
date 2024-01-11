@@ -5,7 +5,9 @@ import {getWeatherData} from "./mockdata.js";
 import { Textbox } from './Components/textbox/index.js';
 import { Todos } from './Components/todo/todos.jsx';
 import { Button } from './Components/button/index.js';
-import { TimeSelector } from './Components/timeSelector/index.js';
+//import { TimeSelector } from './Components/timeSelector/index.js';
+import { CustomTask } from'./Components/customtask/index.js';
+import { TimeSelector } from './Components/timeSelector/timeSelector.jsx';
 console.log("root called")
 
 function App() {
@@ -43,13 +45,13 @@ function App() {
   return (
     <div className="App">
       <div className="main-view">
-
+      {/*<CustomTask></CustomTask>*/}
       {/* Testing Textbox functionality */}
       <span className='text-wrapper-6'>
         <p>Tests:</p>
       <Textbox className={null} message={today.weatherType} />
       </span>
-      
+    {/*<TimeSelector></TimeSelector>*/}
       <div className="div">
         <Todos />
         <div className="overlap-group">

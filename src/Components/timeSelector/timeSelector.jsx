@@ -10,17 +10,18 @@ import "./style.css";
 // I decided to change the implementation because I haven't manage to make X close button work
 // Also note, our own Button isn't working at least yet so I used the ones given from React Bootstrap library
 // Currently this just prints out the given time but when included to todos, it should show the time in UI
-const handleClick = (time) => {
-    console.log(time)
-}
-const handleClose = () => {
-    console.log("Close!")
-}
 export const TimeSelector = () => {
+    const handleClick = (time) => {
+        console.log(time)
+    }
+    const handleClose = () => {
+        //This can be implemented when integrated with todo page!
+        console.log("Close!")
+    }
     //Setting variable for the time input, default null; 
     let [time, setTime] = useState(null);
     return <>
-        <div className="container-s" color="#FAFAFA" id="timeSelector">
+        <div className="container-s" color="--gray-100" id="timeSelector">
             <Textbox className="h2" message="Choose time"/>
             <input type="time" className="form-control" onChange={(e) => setTime(e.target.value)}/>
             <br />

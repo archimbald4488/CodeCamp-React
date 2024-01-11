@@ -2,5 +2,5 @@
     margin:1px;
     padding:0.5px;
     border:2px black;
-    background: #FAFAFA;
+    background: --gray-100
 }
