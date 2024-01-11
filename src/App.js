@@ -5,6 +5,7 @@ import {getWeatherData} from "./mockdata.js";
 import { Textbox } from './Components/textbox/index.js';
 import { Todos } from './Components/todo/todos.jsx';
 import { Button } from './Components/button/index.js';
+import { TimeSelector } from './Components/timeSelector/index.js';
 console.log("root called")
 
 function App() {
@@ -48,7 +49,7 @@ function App() {
         <p>Tests:</p>
       <Textbox className={null} message={today.weatherType} />
       </span>
-
+      
       <div className="div">
         <Todos />
         <div className="overlap-group">
