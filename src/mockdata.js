@@ -35,6 +35,11 @@ const getRandomWeatherType = () => {
   const weatherTypes = ["sunny", "cloudy", "raining"];
   return weatherTypes[Math.floor(Math.random() * weatherTypes.length)];
 };
+// Not yet used, but in future this can be used to generate todos based on weather
+/*const getRandomTodos = () => {
+  const todos = ["Use sunscream", "Water plants", "Drink water", "Get umbrella", "Dress in warm clothes"];
+  return todos[Math.floor(Math.random()*todos.length)]
+}*/
 
 const getRandomTemperature = () => {
   const minTemp = -20;

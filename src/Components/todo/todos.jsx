@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button } from "../button";
 import "./style.css";
 import { Textbox } from "../textbox";
+import { CheckBox } from "../checkbox";
 import { Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -34,13 +35,23 @@ export const Todos = () => {
     />
     <Modal show={showModal} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Expanded List</Modal.Title>
+        <Modal.Title>Todos</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         {/* Content here */}
-        <p>Task 1</p>
-        <p>Task 2</p>
-        <p>Task 3</p>
+        <CheckBox 
+          id="1"
+          text="Use sunscream">    
+        </CheckBox>
+        <CheckBox 
+          id="2"
+          text="Water plants">    
+        </CheckBox>
+        <CheckBox 
+          id="3"
+          text="Drink water">    
+        </CheckBox>
+        
       </Modal.Body>
     </Modal>
   </>
