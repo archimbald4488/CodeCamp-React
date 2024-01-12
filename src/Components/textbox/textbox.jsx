@@ -1,6 +1,8 @@
 import React from "react";
 import "./style.css";
 
+
+/* This component is used as a generic textbox wherever text might be needed, but also has an if-tree for weathertype */
 export const Textbox = ({message, className}) => {
 
     let print;

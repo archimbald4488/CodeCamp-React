@@ -1,3 +1,5 @@
+/* This component was created with Figma, so it has a lot of css styles applied to it... */
+
 import PropTypes from "prop-types";
 import React from "react";
 import "./style.css";
