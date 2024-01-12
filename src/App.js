@@ -72,6 +72,12 @@ function App() {
         </p> 
       </div>
     </div>
+    <div>
+          <div className="hourly-forecast-container">
+            <h2 className="forecast-header">Hourly Forecast</h2>
+            <HourlyForecast />
+          </div>
+        </div>
 
   </div>
 
