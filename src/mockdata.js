@@ -37,7 +37,7 @@ const getRandomWeatherType = () => {
 };
 
 const getRandomTemperature = () => {
-  const minTemp = 5;
+  const minTemp = -20;
   const maxTemp = 20;
   return Math.floor(Math.random() * (maxTemp - minTemp + 1)) + minTemp;
 };

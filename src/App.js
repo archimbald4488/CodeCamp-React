@@ -11,11 +11,11 @@ console.log("root called")
 
 function App() {
 
-  const [weatherData, setWeatherData] = useState(null);
+  /* Mock weather data taken from https://gitlab.vismaconsulting.fi/lut/lut-codecamp-starter */
 
+  const [weatherData, setWeatherData] = useState(null);
   /* today is a single object of weather data*/
   const [today, setToday] = useState(null);
-
   // Data fetching in useEffect
   useEffect(() => {
     async function fetchData() {
@@ -40,6 +40,7 @@ function App() {
   if (!weatherData || !today) {
     return null;
   }
+
 
   return (
     <div className="App">
@@ -78,7 +79,5 @@ function App() {
   </div>
 
   )}
-      
-    
 
 export default App;
