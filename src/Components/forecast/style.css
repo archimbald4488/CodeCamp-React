@@ -1,0 +1,27 @@
+/* style.css */
+.loading-text {
+    font-size: 18px;
+    color: #555;
+    margin-top: 20px;
+  }
+  
+  .forecast-header {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .forecast-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .forecast-time {
+    font-weight: bold;
+  }
+  
+  .forecast-temp {
+    color: #007bff; /* Bootstrap primary color */
+  }
+  
