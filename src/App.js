@@ -1,10 +1,10 @@
-//import logo from './logo.svg';
 import './App.css';
 import React, {useEffect, useState} from "react";
 import {getWeatherData} from "./mockdata.js";
 import { Textbox } from './Components/textbox/index.js';
 import { Todos } from './Components/todo/todos.jsx';
-import { Button } from './Components/button/index.js';
+import HourlyForecast from '../src/Components/forecast/index.js';
+//import { Button } from './Components/button/index.js';
 console.log("root called")
 
 function App() {
