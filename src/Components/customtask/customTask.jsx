@@ -51,7 +51,7 @@ export const CustomTask = () => {
         <Textbox className="h2" message="Temperature"/>
         <Temperature getTemperature={getTemperature}></Temperature>
         {/* Bootstrap buttons */}
-        <Button id="cancel" variant={"secondary"} onClick={handleClose}>Close</Button>
+        <Button id="cancel" variant={"secondary"} onClick={handleClose}>Cancel</Button>
         <Button id="done" variant={"primary"} onClick={handleClick}>Done</Button>
 
         {/* Our buttons*/ }
