@@ -1,8 +1,7 @@
+//Usage of checkbox: https://react-bootstrap.netlify.app/docs/forms/checks-radios
 import Form from 'react-bootstrap/Form';
 
 export const CheckBox = (props) => {
-
-
     return(
         <>
         <Form>
