@@ -12,8 +12,5 @@ export const CheckBox = (props) => {
             </div>
         </Form>
         </>
-    
-
-
     )
 }
