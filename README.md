@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 **Tasks**:
 - Create remaining components
-  - Finish todo component (timeselector and checkbox are found within the todo list)
+  - Finish todo component (timeselector and checkbox should be found within the expanded todo list)
   - Create weather component, which displays the location and today's weather with an image
   - Create checkbox component
 - Add components to main view (App component) after testing them
