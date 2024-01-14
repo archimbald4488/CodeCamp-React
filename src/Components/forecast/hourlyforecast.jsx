@@ -39,7 +39,4 @@ const HourlyForecast = ({ hourlyForecast }) => {
   );
 };
 
-
-
-
 export { HourlyForecast };
