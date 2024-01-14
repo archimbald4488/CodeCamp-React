@@ -1,16 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-const HourlyForecast = ({ hourlyForecast }) => {
-  const mockData = [
-    { time: '8:00 AM', temperature: 12, icon: 'https://openweathermap.org/img/wn/01n.png' },
-    { time: '10:00 AM', temperature: 18, icon: 'https://openweathermap.org/img/wn/01d.png' },
-    { time: '12:00 PM', temperature: 22, icon: 'https://openweathermap.org/img/wn/02d.png' },
-    { time: '2:00 PM', temperature: 26, icon: 'https://openweathermap.org/img/wn/03d.png' },
-    { time: '4:00 PM', temperature: 24, icon: 'https://openweathermap.org/img/wn/04d.png' },
-    { time: '6:00 PM', temperature: 20, icon: 'https://openweathermap.org/img/wn/09n.png' },
-    { time: '8:00 PM', temperature: 15, icon: 'https://openweathermap.org/img/wn/10d.png' },
-    { time: '10:00 PM', temperature: 12, icon: 'https://openweathermap.org/img/wn/11n.png' },
-  ];
+const HourlyForecast = () => {
+  const [hourlyForecast, setHourlyForecast] = useState([]);
+  const apiKey = '214dbdaa94ab73b0003df4cde101c069';
+  const cityId = 524901; // Example city ID, replace it with your desired city ID
+
+  useEffect(() => {
+    const fetchWeatherData = async () => {
+      try {
+        const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=${apiKey}&units=metric`);
+        const data = await response.json();
+
+        // Get current time in UTC
+        const currentTime = new Date().getTime();
+
+        // the API response structure
+        const formattedForecast = data.list
+          .filter(item => new Date(item.dt * 1000).getTime() > currentTime) // Filter next 12 hours
+          .slice(0, 12) // Limit to 12 hours
+          .map(item => {
+            return {
+              time: new Date(item.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+              temperature: item.main.temp,
+              icon: `https://openweathermap.org/img/wn/${item.weather[0].icon}.png`,
+            };
+          });
+
+        setHourlyForecast(formattedForecast);
+      } catch (error) {
+        console.error('Error fetching weather data:', error);
+      }
+    };
+
+    fetchWeatherData();
+  }, [cityId, apiKey]);
 
   return (
     <div className="hourly-forecast">
@@ -19,12 +42,12 @@ const HourlyForecast = ({ hourlyForecast }) => {
         <thead>
           <tr>
             <th>Time</th>
-            <th>Temperature</th>
+            <th>Temperature (°C)</th>
             <th>Icon</th>
           </tr>
         </thead>
         <tbody>
-          {mockData.map((forecast) => (
+          {hourlyForecast.map((forecast) => (
             <tr key={forecast.time}>
               <td>{forecast.time}</td>
               <td>{forecast.temperature}&deg;C</td>
