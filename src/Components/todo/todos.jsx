@@ -5,7 +5,7 @@ import "./style.css";
 import { Textbox } from "../textbox";
 import { CheckBox } from "../checkbox";
 import { Modal } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
 
 export const Todos = () => {
 

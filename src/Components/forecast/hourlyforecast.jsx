@@ -1,58 +1,45 @@
-// app.js
-import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './style.css';
+import React from 'react';
 
-class HourlyForecast extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      forecastData: [],
-    };
-  }
+const HourlyForecast = ({ hourlyForecast }) => {
+  const mockData = [
+    { time: '8:00 AM', temperature: 12, icon: 'https://openweathermap.org/img/wn/01n.png' },
+    { time: '10:00 AM', temperature: 18, icon: 'https://openweathermap.org/img/wn/01d.png' },
+    { time: '12:00 PM', temperature: 22, icon: 'https://openweathermap.org/img/wn/02d.png' },
+    { time: '2:00 PM', temperature: 26, icon: 'https://openweathermap.org/img/wn/03d.png' },
+    { time: '4:00 PM', temperature: 24, icon: 'https://openweathermap.org/img/wn/04d.png' },
+    { time: '6:00 PM', temperature: 20, icon: 'https://openweathermap.org/img/wn/09n.png' },
+    { time: '8:00 PM', temperature: 15, icon: 'https://openweathermap.org/img/wn/10d.png' },
+    { time: '10:00 PM', temperature: 12, icon: 'https://openweathermap.org/img/wn/11n.png' },
+  ];
 
-  componentDidMount() {
-    // Mock data for testing
-    const mockData = {
-      hourly: [
-        { dt: 1642173600, temp: 20 },
-        { dt: 1642177200, temp: 22 },
-        { dt: 1642180800, temp: 18 },
-        // Add more mock data as needed
-      ],
-    };
-
-    // Process mock data
-    const formattedForecast = mockData.hourly.map(hourlyData => {
-      return {
-        time: new Date(hourlyData.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        temperature: hourlyData.temp,
-      };
-    });
-
-    // Set state with mock data
-    this.setState({ forecastData: formattedForecast });
-  }
-
-  render() {
-    if (!this.state.forecastData.length) {
-      return <p className="loading-text">Loading hourly forecast...</p>;
-    }
-
-    return (
-      <div className="container">
-        <div className="hourly-forecast">
-          <h2 className="forecast-header">Hourly Forecast</h2>
-          {this.state.forecastData.map((forecastItem, index) => (
-            <div className="forecast-row" key={index}>
-              <span className="forecast-time">{forecastItem.time}</span>
-              <span className="forecast-temp">{forecastItem.temperature}°C</span>
-            </div>
+  return (
+    <div className="hourly-forecast">
+      <h2>Hourly Forecast</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Temperature</th>
+            <th>Icon</th>
+          </tr>
+        </thead>
+        <tbody>
+          {mockData.map((forecast) => (
+            <tr key={forecast.time}>
+              <td>{forecast.time}</td>
+              <td>{forecast.temperature}&deg;C</td>
+              <td>
+                <img src={forecast.icon} alt={forecast.icon} />
+              </td>
+            </tr>
           ))}
-        </div>
-      </div>
-    );
-  }
-}
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
-export default HourlyForecast;
+
+
+
+export { HourlyForecast };
