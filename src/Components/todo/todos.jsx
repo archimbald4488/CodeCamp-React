@@ -5,13 +5,14 @@ import "./style.css";
 import { Textbox } from "../textbox";
 import { CheckBox } from "../checkbox";
 import { Modal } from "react-bootstrap";
+import { getTodosBasedOnWeather} from "../../mockdata";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { get } from "mongoose";
 
-export const Todos = () => {
-
+export const Todos = (props) => {
     /* Determine if todos button is expanded */
     const [showModal, setShowModal] = useState(false);
-
+    let todos = getTodosBasedOnWeather(props.weatherType, props.temperature);
     const handleButtonClick = () => {
       setShowModal(true);
     };
@@ -19,6 +20,20 @@ export const Todos = () => {
     const handleClose = () => {
       setShowModal(false);
     };
+
+    const generateTodosList = () => {
+      let listItems = [];
+      for (let i=0; i < todos.length; i++) {
+        listItems.push(
+          <CheckBox 
+          id= {i}
+          text={todos[i]}>    
+          </CheckBox>
+        )
+      }
+
+      return listItems;
+    }
 
   return (
     <>
@@ -39,18 +54,7 @@ export const Todos = () => {
       </Modal.Header>
       <Modal.Body>
         {/* Content here */}
-        <CheckBox 
-          id="1"
-          text="Use sunscream">    
-        </CheckBox>
-        <CheckBox 
-          id="2"
-          text="Water plants">    
-        </CheckBox>
-        <CheckBox 
-          id="3"
-          text="Drink water">    
-        </CheckBox>
+        {generateTodosList()}
         
       </Modal.Body>
     </Modal>

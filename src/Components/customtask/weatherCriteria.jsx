@@ -8,10 +8,11 @@ export const WeatherCriteria = (props) => {
             <option>Choose weather criteria</option>
             <option value="Sunny">Sunny</option>
             <option value="Cloudy">Cloudy</option>
-            <option value="Rainy">Rainy</option>
+            <option value="Raining">Raining</option>
             <option value="Windy">Windy</option>
-            <option value="Cold">Cold</option>
-            <option value="Freezing">Freezing</option>
+            <option value="Snowing">Snowing</option>
+            <option value="Cold">Cold (-1 to -30 °C)</option>
+            <option value="Freezing">Freezing (lower than -30 °C)</option>
         </Form.Select>
     )
 

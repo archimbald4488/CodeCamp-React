@@ -40,7 +40,10 @@ function App() {
   if (!weatherData || !today) {
     return null;
   }
-
+  // Generating random todos based on weather
+  console.log(today.weatherType);
+  console.log(today.temperature);
+  //let todos = getTodosBasedOnWeather(today.weatherType, today.temperature);
 
   return (
     <div className="App">
@@ -54,14 +57,14 @@ function App() {
       <TimeSelector />
       <HourlyForecast />
       <div className="div">
-        <Todos />
+        <Todos weatherType={today.weatherType} temperature={today.temperature}/>
         <div className="overlap-group">
           <div className="text-wrapper-2">+25°C</div>
           <div className="text-wrapper-3">Lappeenranta</div>
           <img className="icon-temperature" alt="Icon temperature" src="icon-temperature.png" />
           <img className="icon-location" alt="Icon location" src="icon-location.png" />
         </div>
-        <div className="jan-fri">Jan 5,&nbsp;&nbsp;Fri</div>
+        <div className="jan-fri">Jan, 5,&nbsp;&nbsp;Fri</div>
         <img className="sun" alt="Sun" src="sun.svg" />
         <p className="text-wrapper-4">1 2 3 4 5 6</p>
         <div className="text-wrapper-5">The weather right now:</div>

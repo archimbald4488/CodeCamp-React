@@ -32,17 +32,37 @@ const generateWeatherData = async () => {
 export const getWeatherData = generateWeatherData;
 
 const getRandomWeatherType = () => {
-  const weatherTypes = ["sunny", "cloudy", "raining"];
+  const weatherTypes = ["sunny", "cloudy", "raining", "windy", "cold", "freezing", "snowing"];
   return weatherTypes[Math.floor(Math.random() * weatherTypes.length)];
 };
-// Not yet used, but in future this can be used to generate todos based on weather
-/*const getRandomTodos = () => {
-  const todos = ["Use sunscream", "Water plants", "Drink water", "Get umbrella", "Dress in warm clothes"];
-  return todos[Math.floor(Math.random()*todos.length)]
-}*/
 
 const getRandomTemperature = () => {
-  const minTemp = -20;
-  const maxTemp = 20;
+  const minTemp = -30;
+  const maxTemp = 30;
   return Math.floor(Math.random() * (maxTemp - minTemp + 1)) + minTemp;
 };
+
+// Not yet used, but in future this can be used to generate todos based on weather
+export const getTodosBasedOnWeather = (weatherType, temperature) => {
+  // Typical cases for weather and temperature combinations
+  // Case 1: Sunny weather, temperature is hot, more than 25
+  if (weatherType === "sunny" && temperature > 25) {
+    return ["Water plants", "Stay hydrated", "Buy an air conditioner", "Use sunscreen", "Water plants"];
+  } else if (weatherType === "sunny") {
+    return ["Use sunscreen", "Wear a hat", "Wear sunglasses"]
+  } else if (weatherType === "cloudy") {
+    return  ["Take a walk if temperature is decent"]
+  } else if (weatherType === "windy") {
+    return ["Stay inside", "Secure loose items like lawn furniture", "Dress in layers"]
+  } else if (weatherType === "raining") {
+    return ["Get an umbrella", "Wear a rain coat", "Enjoy indoor activities"];
+  } else if (weatherType === "cold" && (temperature < 0 && temperature > -30)) {
+    return ["Dress in layers to stay warm", "Cover outdoor plants", "Update winter car survival kit", "Warm up car before driving"]
+  } else if (weatherType === "freezing" && temperature <= -30) {
+    return ["Avoid being outside if possible", "Dress in layers to stay warm"]
+  } else if (weatherType === "snowing" || temperature <= 0) {
+    return ["Do snow clearing", "Clear car from snow", "Dress in warm clothes", "Stay off roads if possible"]
+  } else {
+    return ["No predefined tasks for this weather/temperature"]
+  }
+}
