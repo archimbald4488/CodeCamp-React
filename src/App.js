@@ -40,10 +40,6 @@ function App() {
   if (!weatherData || !today) {
     return null;
   }
-  // Generating random todos based on weather
-  console.log(today.weatherType);
-  console.log(today.temperature);
-  //let todos = getTodosBasedOnWeather(today.weatherType, today.temperature);
 
   return (
     <div className="App">
