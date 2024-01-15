@@ -26,7 +26,7 @@ export const Todos = (props) => {
       for (let i=0; i < todos.length; i++) {
         listItems.push(
           <CheckBox 
-          id= {i}
+          key= {i}
           text={todos[i]}>    
           </CheckBox>
         )
