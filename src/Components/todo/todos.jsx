@@ -5,9 +5,7 @@ import "./style.css";
 import { Textbox } from "../textbox";
 import { CheckBox } from "../checkbox";
 import { Modal } from "react-bootstrap";
-import { getTodosBasedOnWeather} from "../../mockdata";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { get } from "mongoose";
 
 export const Todos = (props) => {
     /* Determine if todos button is expanded */
