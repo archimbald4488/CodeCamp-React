@@ -1,1 +1,0 @@
-export { HourlyForecast } from "./hourlyforecast.jsx";
