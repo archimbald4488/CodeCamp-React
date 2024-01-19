@@ -4,7 +4,6 @@ import {getWeatherData} from "./mockdata.js";
 import { Textbox } from './Components/textbox/index.js';
 import { Todos } from './Components/todo/todos.jsx';
 import { HourlyForecast } from '../src/Components/forecast/hourlyforecast.jsx';
-//import { Button } from './Components/button/index.js';
 import { CustomTask } from'./Components/customtask/index.js';
 import { TimeSelector } from './Components/timeSelector/timeSelector.jsx';
 console.log("root called")
@@ -46,7 +45,6 @@ function App() {
       <div className="main-view">
       {/* Testing components */}
       <span className='text-wrapper-6'>
-        <p>Tests:</p>
       <Textbox className={null} message={today.weatherType} />
       </span>
       <CustomTask />
