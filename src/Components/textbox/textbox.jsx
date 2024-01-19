@@ -27,7 +27,7 @@ export const Textbox = ({message, className}) => {
 
     return (
         <>
-        <p class={className}>{print}</p>
+        <p className={className}>{print}</p>
         </>
     );
 };
