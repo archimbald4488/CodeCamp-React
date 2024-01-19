@@ -1,11 +1,11 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
-import {getWeatherData} from "./mockdata.js";
-import { Textbox } from './Components/textbox/index.js';
-import { Todos } from './Components/todo/todos.jsx';
-import { HourlyForecast } from '../src/Components/forecast/hourlyforecast.jsx';
-import { CustomTask } from'./Components/customtask/index.js';
-import { TimeSelector } from './Components/timeSelector/timeSelector.jsx';
+import {getWeatherData} from "./utils/mockdata.js";
+import { Textbox } from '../Components/textbox/index.js';
+import { Todos } from '../Components/todo/todos.jsx';
+import { HourlyForecast } from '../Components/forecast/hourlyforecast.jsx';
+import { CustomTask } from'../Components/customtask/index.js';
+import { TimeSelector } from '../Components/timeSelector/timeSelector.jsx';
 console.log("root called")
 
 function App() {
