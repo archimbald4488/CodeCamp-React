@@ -4,12 +4,13 @@ import React, { useEffect, useState } from 'react';
 import './style.css'; // Import the CSS file
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap styles
 
+
 const HourlyForecast = () => {
   const [hourlyForecast, setHourlyForecast] = useState([]);
   const [currentWeather, setCurrentWeather] = useState({});
   const [cityName, setCityName] = useState('');
   const [backgroundGradient, setBackgroundGradient] = useState('');
-  const apiKey = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
+  const apiKey ='214dbdaa94ab73b0003df4cde101c069';
   const cityId = 648900; // ID for Lappeenranta City
 
   useEffect(() => {
