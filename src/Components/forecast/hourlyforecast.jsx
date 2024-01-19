@@ -66,7 +66,6 @@ const HourlyForecast = () => {
   return (
     <div className="weather-forecast container" style={{ background: backgroundGradient }}>
       <div className="current-weather">
-        <h2>Current Weather</h2>
         <h2>{cityName}</h2>
         {currentWeather.icon && <img src={currentWeather.icon} alt="Current Weather Icon" />}
         <p>Temperature: {currentWeather.temperature}&deg;C</p>
