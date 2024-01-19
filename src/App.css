@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -17,7 +19,7 @@
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -29,13 +31,24 @@
 }
 
 .main-view {
-  background-color: rgba(255, 255, 255, 1);
+  background: linear-gradient(180deg, rgba(37.59, 144.43, 205.06, 0.5) 0%, rgba(106.2, 147.58, 171.06, 0) 100%);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  width: 100%;
+  width: auto;
 }
 
+.main-view div#col1 {
+  margin-top:10%;
+}
+
+.main-view div#col2 {
+  margin-top:7%;
+}
+
+.main-view div#col3 {
+  margin-top:15%;
+}
 .main-view .div {
   background: linear-gradient(180deg, rgba(37.59, 144.43, 205.06, 0.5) 0%, rgba(106.2, 147.58, 171.06, 0) 100%);
   background-color: rgba(255, 255, 255, 1);
@@ -44,7 +57,7 @@
   width: 1440px;
 }
 
-.main-view .button-instance {
+/*.main-view .button-instance {
   background-color: #578ec1 !important;
   border-radius: 12.22px !important;
   display: flex !important;
@@ -201,4 +214,4 @@
 .main-view .text-wrapper-6 {
   font-family: "Inter-Regular", Helvetica;
   font-size: 24px;
-}
+}*/
