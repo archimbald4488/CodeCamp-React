@@ -9,8 +9,8 @@ const HourlyForecast = () => {
   const [currentWeather, setCurrentWeather] = useState({});
   const [cityName, setCityName] = useState('');
   const [backgroundGradient, setBackgroundGradient] = useState('');
-  const apiKey = '214dbdaa94ab73b0003df4cde101c069';
-  const cityId = 648900; // Example city ID, replace it with your desired city ID
+  const apiKey = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
+  const cityId = 648900; // ID for Lappeenranta City
 
   useEffect(() => {
     const fetchWeatherData = async () => {
@@ -75,7 +75,7 @@ const HourlyForecast = () => {
         <p>{currentWeather.description}</p>
       </div>
 
-      <h2>Hourly Forecast (Next 24 Hours)</h2>
+      <h2>Hourly Forecast </h2>
       <div className="hourly-forecast-scrollable row" style={{ background: backgroundGradient }}>
         {hourlyForecast.map((forecast, index) => (
           <div key={index} className="col-2 hourly-forecast-item">
