@@ -12,6 +12,7 @@
     margin-top: 25%;
     transform: translateY(0);
     animation: snowing-rotate-right infinite 8s ease;
+    animation-delay:1.5s;
   }
 
 
@@ -118,11 +119,13 @@
   .windy-2 {
     transform: translateY(0);
     animation: fallingLeaves-2 infinite 5s ease;
+    animation-delay:2s;
     margin-top:20%;
   }
   .windy-3 {
     transform: translateY(0);
     animation: fallingLeaves-3 infinite 7s ease;
+    animation-delay:2.5s;
     margin-top:20%;
   }
 
