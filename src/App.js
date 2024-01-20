@@ -1,9 +1,15 @@
 import './App.css';
+import snowing from './snowing.png';
+import raining from './raining.png';
+import windy from './windy.png';
+import sunny from './sunny.png';
+import cloudy from './cloudy.png';
 import React, {useEffect, useState} from "react";
 import {getWeatherData} from "./mockdata.js";
 import { Textbox } from './Components/textbox/index.js';
 import { Todos } from './Components/todo/todos.jsx';
 import { HourlyForecast } from '../src/Components/forecast/hourlyforecast.jsx';
+import {Animation} from './Components/animations/animation.jsx';
 console.log("root called")
 
 function App() {
@@ -13,6 +19,8 @@ function App() {
   const [weatherData, setWeatherData] = useState(null);
   /* today is a single object of weather data*/
   const [today, setToday] = useState(null);
+  const [weatherClassName, setWeatherClassName] = useState(null);
+  const [weatherImg, setWeatherImg] = useState(null);
   // Data fetching in useEffect
   useEffect(() => {
     async function fetchData() {
@@ -30,17 +38,36 @@ function App() {
       }
 
       setToday(today);
+      if (today.weatherType === "snowing" || today.weatherType === "cold" || today.weatherType === "freezing") {
+        setWeatherClassName("snowing");
+        setWeatherImg(snowing);
+      } else if (today.weatherType === "raining") {
+        setWeatherClassName("raining");
+        setWeatherImg(raining);
+      } else if (today.weatherType === "windy") {
+        setWeatherClassName("windy");
+        setWeatherImg(windy);
+      } else if (today.weatherType === "cloudy") {
+        setWeatherClassName("cloudy");
+        setWeatherImg(cloudy);
+      }else if (today.weatherType === "sunny") {
+        setWeatherClassName("sunny");
+        setWeatherImg(sunny);
+      }
     }
     fetchData();
+    
   }, []);
 
   if (!weatherData || !today) {
     return null;
   }
 
+
+
   return (
-    <div className="App">
-      <div className="main-view">
+    <div className="App" id={today.weatherType}>
+      <div className="main-view" id={today.weatherType}>
         <div className="row">
           {/* First column for the todos button and message */}
           <div className="col-lg-4" id="col1">
@@ -56,7 +83,9 @@ function App() {
 
           <div className='col-lg-4'>
             {/*Button for custom task!*/}
-            <div className="container"></div>
+            <div className="container">
+              <Animation weatherClassName={weatherClassName} weatherImg={weatherImg}></Animation>
+            </div>
           </div>
         </div>
     </div>

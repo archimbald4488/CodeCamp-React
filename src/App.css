@@ -1,3 +1,6 @@
+:root {
+
+}
 .App {
   text-align: center;
   display: flex;
@@ -31,11 +34,34 @@
 }
 
 .main-view {
-  background: linear-gradient(180deg, rgba(37.59, 144.43, 205.06, 0.5) 0%, rgba(106.2, 147.58, 171.06, 0) 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: auto;
+  height: auto;
+}
+.App#sunny {
+  background: linear-gradient(180deg, #f4ff99, #fefab5, #fff6c1, #9aedff, #ffffff);
+}
+
+.App#cloudy {
+  background: linear-gradient(180deg, #345c87,#5980ab,  #a9caee, #b4dfff, #f0f8fe,  #ffffff);
+}
+.App#windy {
+  background: linear-gradient(180deg, #a0ccdd, #bedde7, #c6e8f2,#d7e4e8, #e2eff4, #ffffff);
+}
+.App#snowing {
+  background: linear-gradient(#6dc3e4, #a1dedb, #a3dfdb, #c6e8f2, #d7e4e8, #ffffff);
+}
+.App#cold {
+  background: linear-gradient(#13679e, #179cff, #b6daff, #73cee9, #ffffff);
+}
+.App#raining {
+    background: linear-gradient(#027293, #487886, #72a6b5, #ffffff);
+
+}
+.App#freezing {
+  background: linear-gradient(#176ba1, #326a94, #4ca7d4, #4fb5dd, #dcebf1, #ffffff)
 }
 
 .main-view div#col1 {

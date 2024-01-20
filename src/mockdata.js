@@ -42,7 +42,6 @@ const getRandomTemperature = () => {
   return Math.floor(Math.random() * (maxTemp - minTemp + 1)) + minTemp;
 };
 
-// Not yet used, but in future this can be used to generate todos based on weather
 export const getTodosBasedOnWeather = (weatherType, temperature) => {
   // Typical cases for weather and temperature combinations
   // Case 1: Sunny weather, temperature is hot, more than 25
