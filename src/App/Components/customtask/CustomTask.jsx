@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import Button from 'react-bootstrap/Button'
 import { WeatherCriteria } from "./weatherCriteria";
 import { Temperature } from "./Temperature";
-import { Textbox } from "../textbox";
+import { Textbox } from "../textbox/Textbox";
 import "./style.css";
 import { Modal } from "react-bootstrap";
 

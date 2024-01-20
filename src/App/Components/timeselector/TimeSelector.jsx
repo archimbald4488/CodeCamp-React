@@ -2,7 +2,7 @@
 // How to get input with button click: https://simplefrontend.com/how-to-get-input-values-in-react/
 import React, {useState} from "react";
 import Button from 'react-bootstrap/Button';
-import { Textbox } from "../textbox";
+import { Textbox } from "../textbox/Textbox";
 import { Modal } from "react-bootstrap";
 import "./style.css";
 // I decided to change the implementation because I haven't manage to make X close button work

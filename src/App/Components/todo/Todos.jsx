@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Button from 'react-bootstrap/Button'
-import { Textbox } from "../textbox";
+import { Textbox } from "../textbox/Textbox.jsx";
 import { Modal } from "react-bootstrap";
-import { CustomTask } from "../customtask/index.js";
-import { TimeSelector } from "../timeSelector/index.js";
-import { CheckBox } from "../checkbox/index.js"
+import { CustomTask } from "../customtask/CustomTask.jsx";
+import { TimeSelector } from "../timeselector/TimeSelector.jsx";
+import { CheckBox } from "../checkbox/CheckBox.jsx"
 import "./style.css";
-import { getTodosBasedOnWeather } from "../../App/utils/mockdata.js";
+import { getTodosBasedOnWeather } from "../../utils/mockdata.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const Todos = (props) => {
