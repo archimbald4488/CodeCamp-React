@@ -4,7 +4,7 @@ import { Textbox } from "../textbox/Textbox.jsx";
 import { Modal } from "react-bootstrap";
 import { CustomTask } from "../customtask/CustomTask.jsx";
 import { TimeSelector } from "../timeselector/TimeSelector";
-import { CheckBox } from "../checkbox/Checkbox.jsx"
+import { CheckBox } from "../checkbox/CheckBox.jsx"
 import "./style.css";
 import { getTodosBasedOnWeather } from "../../utils/mockdata.js";
 import "bootstrap/dist/css/bootstrap.min.css";
