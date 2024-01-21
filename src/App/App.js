@@ -1,11 +1,11 @@
 import './App.css';
+
 import React, {useEffect, useState} from "react";
 import {getWeatherData} from "./utils/mockdata.js";
-import { Textbox } from './Components/textbox/Textbox.jsx';
-import { Todos } from './Components/todo/Todos.jsx';
-import { HourlyForecast } from './Components/forecast/HourlyForecast.jsx';
-import { CustomTask } from'./Components/customtask/CustomTask.jsx';
-import { TimeSelector } from './Components/timeselector/TimeSelector.jsx';
+import { Textbox } from './Components/textbox/index.js';
+import { Todos } from './Components/todo/todos.jsx';
+import { HourlyForecast } from './Components/forecast/hourlyforecast.jsx';
+import {Animation} from './Components/animations/animation.jsx';
 console.log("root called")
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
   const [weatherData, setWeatherData] = useState(null);
   /* today is a single object of weather data*/
   const [today, setToday] = useState(null);
+  const [weatherClassName, setWeatherClassName] = useState(null);
   // Data fetching in useEffect
   useEffect(() => {
     async function fetchData() {
@@ -32,8 +33,20 @@ function App() {
       }
 
       setToday(today);
+      if (today.weatherType === "snowing" || today.weatherType === "cold" || today.weatherType === "freezing") {
+        setWeatherClassName("snowing");
+      } else if (today.weatherType === "raining") {
+        setWeatherClassName("raining");
+      } else if (today.weatherType === "windy") {
+        setWeatherClassName("windy");
+      } else if (today.weatherType === "cloudy") {
+        setWeatherClassName("cloudy");
+      }else if (today.weatherType === "sunny") {
+        setWeatherClassName("sunny");
+      }
     }
     fetchData();
+    
   }, []);
 
   if (!weatherData || !today) {
@@ -41,37 +54,28 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <div className="main-view">
-      {/* Testing components */}
-      <span className='text-wrapper-6'>
-      <Textbox className={null} message={today.weatherType} />
-      </span>
-      <CustomTask />
-      <TimeSelector />
-      <HourlyForecast />
-      <div className="div">
-        <Todos weatherType={today.weatherType} temperature={today.temperature}/>
-        <div className="overlap-group">
-          <div className="text-wrapper-2">+25°C</div>
-          <div className="text-wrapper-3">Lappeenranta</div>
-          <img className="icon-temperature" alt="Icon temperature" src="icon-temperature.png" />
-          <img className="icon-location" alt="Icon location" src="icon-location.png" />
+    <div className="App" id={today.weatherType}>
+      <div className="main-view" id={today.weatherType}>
+        <div className="row">
+          {/* First column for the todos button and message */}
+          <div className="col-lg-4" id="col1">
+            <Textbox className="h1" message="Welcome!"></Textbox>
+            <Textbox className="h3" message={today.weatherType} />
+            <br></br>
+            <br></br>
+            <Todos weatherType={today.weatherType} temperature={today.temperature}/>
+          </div>
+          <div className='col-lg-4' id="col2">
+            <HourlyForecast></HourlyForecast>
+          </div>
+
+          <div className='col-lg-4'>
+            {/*Button for custom task!*/}
+            <div className="container">
+              <Animation weatherClassName={weatherClassName}></Animation>
+            </div>
+          </div>
         </div>
-        <div className="jan-fri">Jan, 5,&nbsp;&nbsp;Fri</div>
-        <img className="sun" alt="Sun" src="sun.svg" />
-        <p className="text-wrapper-4">1 2 3 4 5 6</p>
-        <div className="text-wrapper-5">The weather right now:</div>
-        <p className="welcome-hope-you-re">
-          <span className="span">Welcome!</span>
-          <span className="text-wrapper-6">
-            {" "}
-            <br />
-            <br />
-            <Textbox className="text-wrapper-6" message={today.weatherType} />
-          </span>
-        </p> 
-      </div>
     </div>
 
   </div>

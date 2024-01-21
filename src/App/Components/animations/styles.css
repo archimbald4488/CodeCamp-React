@@ -1,0 +1,163 @@
+/*Inspiration for animations: https://www.youtube.com/watch?v=V0ui-W0KmRc*/
+/*Everything snowing related*/
+.snowing-1 {
+    margin-top: 20%;
+    z-index: 1;
+    transform: translateY(0.5);
+    animation: snowing-rotate-left infinite 9s ease;
+  }
+  
+  .snowing-2 {
+    z-index: 1;
+    margin-top: 25%;
+    transform: translateY(0);
+    animation: snowing-rotate-right infinite 7s ease;
+    animation-delay:0.1s;
+  }
+  .snowing-3 {
+    z-index: 1;
+    margin-top: 30%;
+    transform: translateY(0);
+    animation: snowing-rotate-left infinite 5s ease;
+    animation-delay:0.25s;
+  }
+
+
+  @keyframes snowing-rotate-left {
+    0% {
+      transform: translateY(0) rotate(160deg);
+    }
+    100% {
+      transform: translateY(600px);
+    }
+  }
+  
+  @keyframes snowing-rotate-right {
+    0% {
+      transform: translateY(0) rotate(-160deg);
+    } 
+    100% {
+      transform: translateY(600px);
+    }
+  }
+
+  /*Everything raining related*/
+  .rain-cloud {
+    margin-top: 20%;
+    z-index: 1;
+  }
+  
+  .raining-1 {
+    z-index: 1;
+    transform: translateY(0);
+    animation: raining infinite 1.5s linear;
+  }
+  .raining-2 {
+    z-index: 1;
+    transform: translateY(0);
+    animation: raining infinite 3s linear;
+  }
+  .raining-3 {
+    z-index: 1;
+    transform: translateY(0);
+    animation: raining infinite 2s linear;
+  }
+
+  @keyframes raining {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(500px);
+    }
+  }
+  
+  .sunny {
+    margin-top: 23%;
+    z-index: 2;
+    animation: rotatingSun infinite 20s linear;
+  }
+
+  @keyframes rotatingSun{
+    from {
+      transform: rotate(0deg);
+    } to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .cloudy-left {
+    margin-top: 23%;
+    transform: translateY(0);
+    animation: cloudy-left infinite 15s ease;
+
+  }
+  .cloudy-right {
+    margin-top: 25%;
+    transform: translateY(0);
+    animation: cloudy-right infinite 15s ease;
+
+  }
+
+  @keyframes cloudy-left {
+    0% {
+      transform: translate(0);
+    } 50% {
+      transform: translateX(-50px);
+    } 100% {
+      transform: translateX(50);
+    }
+  }
+  @keyframes cloudy-right {
+    0% {
+      transform: translate(0);
+    } 50% {
+      transform: translateX(50px);
+    }  100% {
+      transform: translateX(-50px);
+    }
+  }
+  /*Windy animations */
+  .windy-1 {
+    transform: translateY(0);
+    animation: fallingLeaves-1 infinite 3s ease;
+    margin-top:20%;
+  }
+  .windy-2 {
+    transform: translateY(0);
+    animation: fallingLeaves-2 infinite 5s ease;
+    animation-delay:2s;
+    margin-top:20%;
+  }
+  .windy-3 {
+    transform: translateY(0);
+    animation: fallingLeaves-3 infinite 7s ease;
+    animation-delay:2.5s;
+    gap:2px;
+    margin-top:20%;
+  }
+
+
+ /*Example on falling leaves: https://codepen.io/uurrnn/pen/WNLVdN */
+  @keyframes fallingLeaves-1 {
+    0% {
+      transform: translate3d(300, 0, 0) rotate(0deg);
+    } 100% {
+      transform: translate3d(100px, 600px, 0) rotate(120deg);
+    } 
+  }
+  @keyframes fallingLeaves-2 {
+    0% {
+      transform: translate3d(300, 0, 0) rotate(120deg);
+    } 100% {
+      transform: translate3d(-100px, 600px, 0) rotate(0deg);
+    } 
+  }
+  @keyframes fallingLeaves-3 {
+    0% {
+      transform: translate3d(300, 0, 0) rotate(0deg);
+    } 100% {
+      transform: translate3d(-175px, 600px, 0) rotate(160deg);
+    } 
+  }
+ 
