@@ -35,19 +35,14 @@ function App() {
       setToday(today);
       if (today.weatherType === "snowing" || today.weatherType === "cold" || today.weatherType === "freezing") {
         setWeatherClassName("snowing");
-        //setWeatherImg(snowing);
       } else if (today.weatherType === "raining") {
         setWeatherClassName("raining");
-        //setWeatherImg(raining);
       } else if (today.weatherType === "windy") {
         setWeatherClassName("windy");
-        //setWeatherImg(windy);
       } else if (today.weatherType === "cloudy") {
         setWeatherClassName("cloudy");
-        //setWeatherImg(cloudy);
       }else if (today.weatherType === "sunny") {
         setWeatherClassName("sunny");
-        //setWeatherImg(sunny);
       }
     }
     fetchData();
