@@ -1,18 +1,25 @@
 /*Inspiration for animations: https://www.youtube.com/watch?v=V0ui-W0KmRc*/
 /*Everything snowing related*/
-.snowing-left {
+.snowing-1 {
     margin-top: 20%;
     z-index: 1;
     transform: translateY(0.5);
-    animation: snowing-rotate-left infinite 10s ease;
+    animation: snowing-rotate-left infinite 9s ease;
   }
   
-  .snowing-right {
+  .snowing-2 {
     z-index: 1;
     margin-top: 25%;
     transform: translateY(0);
-    animation: snowing-rotate-right infinite 8s ease;
-    animation-delay:1.5s;
+    animation: snowing-rotate-right infinite 7s ease;
+    animation-delay:0.1s;
+  }
+  .snowing-3 {
+    z-index: 1;
+    margin-top: 30%;
+    transform: translateY(0);
+    animation: snowing-rotate-left infinite 5s ease;
+    animation-delay:0.25s;
   }
 
 
@@ -126,6 +133,7 @@
     transform: translateY(0);
     animation: fallingLeaves-3 infinite 7s ease;
     animation-delay:2.5s;
+    gap:2px;
     margin-top:20%;
   }
 

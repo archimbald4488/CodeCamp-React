@@ -1,5 +1,5 @@
 import "./styles.css";
-import rainCloud from './rainCloud.png';
+import rainCloud from './images/rainCloud.png';
 
 export const Raining= (props) => {
     return (

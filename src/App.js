@@ -1,9 +1,5 @@
 import './App.css';
-import snowing from './snowing.png';
-import raining from './raining.png';
-import windy from './windy.png';
-import sunny from './sunny.png';
-import cloudy from './cloudy.png';
+
 import React, {useEffect, useState} from "react";
 import {getWeatherData} from "./mockdata.js";
 import { Textbox } from './Components/textbox/index.js';
@@ -20,7 +16,6 @@ function App() {
   /* today is a single object of weather data*/
   const [today, setToday] = useState(null);
   const [weatherClassName, setWeatherClassName] = useState(null);
-  const [weatherImg, setWeatherImg] = useState(null);
   // Data fetching in useEffect
   useEffect(() => {
     async function fetchData() {
@@ -40,19 +35,19 @@ function App() {
       setToday(today);
       if (today.weatherType === "snowing" || today.weatherType === "cold" || today.weatherType === "freezing") {
         setWeatherClassName("snowing");
-        setWeatherImg(snowing);
+        //setWeatherImg(snowing);
       } else if (today.weatherType === "raining") {
         setWeatherClassName("raining");
-        setWeatherImg(raining);
+        //setWeatherImg(raining);
       } else if (today.weatherType === "windy") {
         setWeatherClassName("windy");
-        setWeatherImg(windy);
+        //setWeatherImg(windy);
       } else if (today.weatherType === "cloudy") {
         setWeatherClassName("cloudy");
-        setWeatherImg(cloudy);
+        //setWeatherImg(cloudy);
       }else if (today.weatherType === "sunny") {
         setWeatherClassName("sunny");
-        setWeatherImg(sunny);
+        //setWeatherImg(sunny);
       }
     }
     fetchData();
@@ -84,7 +79,7 @@ function App() {
           <div className='col-lg-4'>
             {/*Button for custom task!*/}
             <div className="container">
-              <Animation weatherClassName={weatherClassName} weatherImg={weatherImg}></Animation>
+              <Animation weatherClassName={weatherClassName}></Animation>
             </div>
           </div>
         </div>
