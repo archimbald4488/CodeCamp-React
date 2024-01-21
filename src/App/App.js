@@ -2,10 +2,10 @@ import './App.css';
 
 import React, {useEffect, useState} from "react";
 import {getWeatherData} from "./utils/mockdata.js";
-import { Textbox } from './Components/textbox/index.js';
-import { Todos } from './Components/todo/todos.jsx';
-import { HourlyForecast } from './Components/forecast/hourlyforecast.jsx';
-import {Animation} from './Components/animations/animation.jsx';
+import { Textbox } from './Components/textbox/Textbox.jsx';
+import { Todos } from './Components/todo/Todos.jsx';
+import { HourlyForecast } from './Components/forecast/Hourlyforecast.jsx';
+import {Animation} from './Components/animations/Animation.jsx';
 console.log("root called")
 
 function App() {
