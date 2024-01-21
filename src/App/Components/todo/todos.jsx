@@ -6,7 +6,7 @@ import { CustomTask } from "../customtask/index.js";
 import { TimeSelector } from "../timeSelector/index.js";
 import { CheckBox } from "../checkbox/index.js"
 import "./style.css";
-import { getTodosBasedOnWeather } from "../../mockdata";
+import { getTodosBasedOnWeather } from "../../utils/mockdata";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const Todos = (props) => {
