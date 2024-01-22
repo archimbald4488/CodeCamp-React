@@ -9,6 +9,7 @@ const HourlyForecast = () => {
   const [backgroundGradient, setBackgroundGradient] = useState('');
   const apiKey = '214dbdaa94ab73b0003df4cde101c069';
   const cityId = 648900;
+  let weatherimage = ""
 
   //  function for hourly forecast section
   const getHourlyForecastBackgroundGradient = () => {
@@ -20,14 +21,19 @@ const HourlyForecast = () => {
     const lowerCasedDescription = (weatherDescription ?? '').toLowerCase();
 //logic for dynamic background based on description
     if (lowerCasedDescription.includes('clear')) {
+      weatherimage = "../animations/images/clearMAIN.jpg"
       return 'linear-gradient(to bottom, #87CEEB, #1E90FF)';
     } else if (lowerCasedDescription.includes('cloud')) {
+      weatherimage = "../animations/images/..."
       return 'linear-gradient(to bottom, #A9A9A9, #696969)';
     } else if (lowerCasedDescription.includes('rain')) {
+      weatherimage = "../animations/images/..."
       return 'linear-gradient(to bottom, #4682B4, #1E90FF)';
     } else if (lowerCasedDescription.includes('snow')) {
+      weatherimage = "../animations/images/cloudy.png"
       return 'linear-gradient(to bottom, #EDF5F0, #C3C8C4)';
     } else {
+      weatherimage = "../animations/images/..."
       return 'linear-gradient(to bottom, #87CEEB, #1E90FF)';
     }
   };
@@ -74,7 +80,7 @@ const HourlyForecast = () => {
     <div className="weather-forecast container" style={{ background: backgroundGradient, height: '80vh' ,borderRadius: '5px' }}>
       <div className="current-weather" style={{ background: getInfoSectionBackgroundGradient(currentWeather.description) }}>
         <h2>{cityName}</h2>
-        {currentWeather.icon && <img src={currentWeather.icon} alt="Current Weather Icon" />}
+        {weatherimage && <img src={weatherimage} alt="Current Weather Icon" />}
         <p>Temperature: {currentWeather.temperature}&deg;C</p>
         <p>Wind: {currentWeather.wind} m/s</p>
         <p>Humidity: {currentWeather.humidity}%</p>
