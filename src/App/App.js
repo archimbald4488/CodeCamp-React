@@ -6,6 +6,8 @@ import { Textbox } from './Components/textbox/Textbox.jsx';
 import { Todos } from './Components/todo/Todos.jsx';
 import { HourlyForecast } from './Components/forecast/HourlyForecast.jsx';
 import {Animation} from './Components/animations/animation.jsx';
+import Button from 'react-bootstrap/Button'
+import { CustomTask } from './Components/customtask/CustomTask.jsx';
 console.log("root called")
 
 function App() {
@@ -13,6 +15,8 @@ function App() {
   /* Mock weather data taken from https://gitlab.vismaconsulting.fi/lut/lut-codecamp-starter */
 
   const [weatherData, setWeatherData] = useState(null);
+  const [showCustomTask, setShowCustomTask] = useState(false);
+  //const [customTasks, setCustomTasks] = useState([]);
   /* today is a single object of weather data*/
   const [today, setToday] = useState(null);
   const [weatherClassName, setWeatherClassName] = useState(null);
@@ -53,6 +57,21 @@ function App() {
     return null;
   }
 
+  const handleOpenCustomTask = () => {
+    console.log("Opening Custom Task");
+    setShowCustomTask(true);
+  };
+  
+  const handleCloseCustomTask = () => {
+    console.log("Closing Custom Task");
+    setShowCustomTask(false);
+  };
+
+  const handleDoneCustomTask = (newTask) => {
+    //setCustomTasks([...customTasks, newTask]); //can be used to implement the new tasks
+    setShowCustomTask(false);
+  };
+
   return (
     <div className="App" id={today.weatherType}>
       <div className="main-view" id={today.weatherType}>
@@ -70,7 +89,19 @@ function App() {
           </div>
 
           <div className='col-lg-4'>
-            {/*Button for custom task!*/}
+            <div className="text-end" style={{ marginRight: '5px', marginTop: '5px'}}>
+              {/* Button for custom task! */}
+              <div className="btn-group" role="group">
+              <Button onClick={handleOpenCustomTask} className="btn btn-light btn-sm">
+                Add Custom Task
+              </Button>
+              <Button className='btn btn-light active btn-sm'>
+                Settings
+              </Button>
+              </div>
+            </div>
+            {/* CustomTask component */}
+            {showCustomTask && <CustomTask handleClose={handleCloseCustomTask} show={showCustomTask} onDone={handleDoneCustomTask}/>}
             <div className="container">
               <Animation weatherClassName={weatherClassName}></Animation>
             </div>

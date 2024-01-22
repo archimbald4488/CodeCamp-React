@@ -55,15 +55,39 @@ export const CustomTask = ({ handleClose, show, onDone }) => {
                     <Modal.Title>Add new task</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div className="container-l" id="customTask">
-                        <Textbox className="h2" message="Add new task"/>
-                        <input type="text" placeholder="Write name for new task.." onChange={(e) => setTaskName(e.target.value)}/>
-                        <Textbox className="h2" message="Task description"/>
-                        <textarea placeholder="Write description for new task.." onChange={(e) =>setTaskDescription( e.target.value)}></textarea>
-                        <Textbox className="h2" message="Weather criteria"/>
-                        <WeatherCriteria getWeatherCriteria={getWeatherCriteria}></WeatherCriteria>
-                        <Textbox className="h2" message="Temperature"/>
-                        <Temperature getTemperature={getTemperature}></Temperature>
+                    <div className="container-lg" id="customTask">
+                    <Textbox className="h2 mb-4" message="Task name" />
+
+                    <div className="mb-3">
+                        <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Write name for new task.."
+                        onChange={(e) => setTaskName(e.target.value)}
+                        />
+                    </div>
+
+                    <Textbox className="h2 mb-4" message="Task description" />
+
+                    <div className="mb-3">
+                        <textarea
+                        className="form-control"
+                        placeholder="Write description for new task.."
+                        onChange={(e) => setTaskDescription(e.target.value)}
+                        ></textarea>
+                    </div>
+
+                    <Textbox className="h2 mb-4" message="Weather criteria" />
+
+                    <div className="mb-3">
+                        <WeatherCriteria getWeatherCriteria={getWeatherCriteria} />
+                    </div>
+
+                    <Textbox className="h2 mb-4" message="Temperature" />
+
+                    <div className="mb-3">
+                        <Temperature getTemperature={getTemperature} />
+                    </div>
                     </div>
                 </Modal.Body>
                 <Modal.Footer>
