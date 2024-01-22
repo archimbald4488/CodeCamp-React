@@ -4,15 +4,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 **App.js is the main application file under the src directory, routed to with index.js.**
 
-**Tasks**:
-- Create remaining components
-  - Finish todo component (timeselector and checkbox should be found within the expanded todo list)
-  - Create weather component, which displays the location and today's weather with an image
-  - Create checkbox component
-- Add components to main view (App component) after testing them
-- Add interactive buttons that display the components
-- Make main view look nice
-
 ## Available Scripts
 
 In the project directory, you can run:
