@@ -73,8 +73,8 @@ export const Todos = (props) => {
 
   return (
     <>
-    <Textbox className="h6" message="Here's what you should do about today's weather:"/>
-    <Button id="done" className="btn btn-light btn-xl" onClick={handleButtonClick}>{<h3 id="todo-text">Todo's</h3>}</Button>
+    <Textbox className="font-weight-bold" message="Here's what you should do about today's weather:"/>
+    <Button id="done" className="btn btn-light btn-lg" onClick={handleButtonClick}>Todo's</Button>
     <Modal show={showModal} onHide={handleClose}>
       <Modal.Header closeButton>
         <Modal.Title>Your To-do's for today!</Modal.Title>

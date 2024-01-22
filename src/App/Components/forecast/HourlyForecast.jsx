@@ -2,6 +2,12 @@ import React, { useEffect, useState } from 'react';
 import './style.css'; // Import the CSS file
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap styles
 
+import clearImage from '../animations/images/clearMAIN.jpg';
+import cloudyImage from '../animations/images/cloudy.png';
+import rainyImage from '../animations/images/raining.png'; // Update with the correct path and filename
+import snowyImage from '../animations/images/snowing.png'; // Update with the correct path and filename
+
+
 const HourlyForecast = () => {
   const [hourlyForecast, setHourlyForecast] = useState([]);
   const [currentWeather, setCurrentWeather] = useState({});
@@ -9,6 +15,7 @@ const HourlyForecast = () => {
   const [backgroundGradient, setBackgroundGradient] = useState('');
   const apiKey = '214dbdaa94ab73b0003df4cde101c069';
   const cityId = 648900;
+  let weatherimage = "";
 
   //  function for hourly forecast section
   const getHourlyForecastBackgroundGradient = () => {
@@ -18,16 +25,21 @@ const HourlyForecast = () => {
   // function for current weather section
   const getInfoSectionBackgroundGradient = (weatherDescription) => {
     const lowerCasedDescription = (weatherDescription ?? '').toLowerCase();
-//logic for dynamic background based on description
+
     if (lowerCasedDescription.includes('clear')) {
+      weatherimage = clearImage;
       return 'linear-gradient(to bottom, #87CEEB, #1E90FF)';
     } else if (lowerCasedDescription.includes('cloud')) {
+      weatherimage = cloudyImage;
       return 'linear-gradient(to bottom, #A9A9A9, #696969)';
     } else if (lowerCasedDescription.includes('rain')) {
+      weatherimage = rainyImage;
       return 'linear-gradient(to bottom, #4682B4, #1E90FF)';
     } else if (lowerCasedDescription.includes('snow')) {
+      weatherimage = snowyImage;
       return 'linear-gradient(to bottom, #EDF5F0, #C3C8C4)';
     } else {
+      
       return 'linear-gradient(to bottom, #87CEEB, #1E90FF)';
     }
   };
@@ -72,28 +84,27 @@ const HourlyForecast = () => {
 
   return (
     <div className="weather-forecast container" style={{ background: backgroundGradient, height: '80vh', borderRadius: '5px' }}>
-    <div className="current-weather" style={{ background: getInfoSectionBackgroundGradient(currentWeather.description), marginBottom: '20px', padding: '20px' }}>
-      <h4>{cityName}</h4>
-      {currentWeather.icon && <img src={currentWeather.icon} alt="Current Weather Icon" style={{ width: '80px', height: '80px' }} />}
-      <p>Temperature: {currentWeather.temperature}&deg;C</p>
-      <p>Wind: {currentWeather.wind} m/s</p>
-      <p>Humidity: {currentWeather.humidity}%</p>
-      <p>{currentWeather.description}</p>
-    </div>
+      <div className="current-weather" style={{ background: getInfoSectionBackgroundGradient(currentWeather.description) }}>
+        <h2>{cityName}</h2>
+        {weatherimage && <img src={weatherimage} alt="Current Weather Icon" />}
+        <p>Temperature: {currentWeather.temperature}&deg;C</p>
+        <p>Wind: {currentWeather.wind} m/s</p>
+        <p>Humidity: {currentWeather.humidity}%</p>
+        <p>{currentWeather.description}</p>
+      </div>
 
-    <h4>Hourly Forecast</h4>
-    <div className="hourly-forecast-scrollable row" style={{ background: getHourlyForecastBackgroundGradient(),marginBottom :'5px' }}>
-      {hourlyForecast.map((forecast, index) => (
-        <div key={index} className="col-lg-2 col-md-3 col-sm-4 col-6 hourly-forecast-item text-center">
-          <p className="text-truncate">{forecast.time}</p>
-          <p>{forecast.temperature}&deg;C</p>
-          {forecast.icon && <img src={forecast.icon} alt={forecast.icon} />}
-        </div>
-      ))}
+      <h2>Hourly Forecast</h2>
+      <div className="hourly-forecast-scrollable row" style={{ background: getHourlyForecastBackgroundGradient() }}>
+        {hourlyForecast.map((forecast, index) => (
+          <div key={index} className="col-lg-2 col-md-3 col-sm-4 col-6 hourly-forecast-item text-center">
+            <p className="text-truncate">{forecast.time}</p>
+            <p>{forecast.temperature}&deg;C</p>
+            {forecast.icon && <img src={forecast.icon} alt={forecast.icon} />}
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
 };
-
 
 export { HourlyForecast };
