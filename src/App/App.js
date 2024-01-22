@@ -5,7 +5,7 @@ import {getWeatherData} from "./utils/mockdata.js";
 import { Textbox } from './Components/textbox/Textbox.jsx';
 import { Todos } from './Components/todo/Todos.jsx';
 import { HourlyForecast } from './Components/forecast/HourlyForecast.jsx';
-import {Animation} from './Components/animations/Animation.jsx';
+import {Animation} from './Components/animations/animation.jsx';
 import Button from 'react-bootstrap/Button'
 import { CustomTask } from './Components/customtask/CustomTask.jsx';
 console.log("root called")

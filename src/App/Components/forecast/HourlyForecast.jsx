@@ -71,7 +71,7 @@ const HourlyForecast = () => {
   }, [cityId, apiKey]);
 
   return (
-    <div className="weather-forecast container" style={{ background: backgroundGradient, height: '80vh'  }}>
+    <div className="weather-forecast container" style={{ background: backgroundGradient, height: '80vh' ,borderRadius: '5px' }}>
       <div className="current-weather" style={{ background: getInfoSectionBackgroundGradient(currentWeather.description) }}>
         <h2>{cityName}</h2>
         {currentWeather.icon && <img src={currentWeather.icon} alt="Current Weather Icon" />}
