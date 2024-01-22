@@ -71,28 +71,29 @@ const HourlyForecast = () => {
   }, [cityId, apiKey]);
 
   return (
-    <div className="weather-forecast container" style={{ background: backgroundGradient, height: '80vh' ,borderRadius: '5px' }}>
-      <div className="current-weather" style={{ background: getInfoSectionBackgroundGradient(currentWeather.description) }}>
-        <h2>{cityName}</h2>
-        {currentWeather.icon && <img src={currentWeather.icon} alt="Current Weather Icon" />}
-        <p>Temperature: {currentWeather.temperature}&deg;C</p>
-        <p>Wind: {currentWeather.wind} m/s</p>
-        <p>Humidity: {currentWeather.humidity}%</p>
-        <p>{currentWeather.description}</p>
-      </div>
-
-      <h2>Hourly Forecast</h2>
-      <div className="hourly-forecast-scrollable row" style={{ background: getHourlyForecastBackgroundGradient() }}>
-        {hourlyForecast.map((forecast, index) => (
-          <div key={index} className="col-lg-2 col-md-3 col-sm-4 col-6 hourly-forecast-item text-center">
-            <p className="text-truncate">{forecast.time}</p>
-            <p>{forecast.temperature}&deg;C</p>
-            {forecast.icon && <img src={forecast.icon} alt={forecast.icon} />}
-          </div>
-        ))}
-      </div>
+    <div className="weather-forecast container" style={{ background: backgroundGradient, height: '80vh', borderRadius: '5px' }}>
+    <div className="current-weather" style={{ background: getInfoSectionBackgroundGradient(currentWeather.description), marginBottom: '20px', padding: '20px' }}>
+      <h4>{cityName}</h4>
+      {currentWeather.icon && <img src={currentWeather.icon} alt="Current Weather Icon" style={{ width: '80px', height: '80px' }} />}
+      <p>Temperature: {currentWeather.temperature}&deg;C</p>
+      <p>Wind: {currentWeather.wind} m/s</p>
+      <p>Humidity: {currentWeather.humidity}%</p>
+      <p>{currentWeather.description}</p>
     </div>
-  );
+
+    <h4>Hourly Forecast</h4>
+    <div className="hourly-forecast-scrollable row" style={{ background: getHourlyForecastBackgroundGradient(),marginBottom :'5px' }}>
+      {hourlyForecast.map((forecast, index) => (
+        <div key={index} className="col-lg-2 col-md-3 col-sm-4 col-6 hourly-forecast-item text-center">
+          <p className="text-truncate">{forecast.time}</p>
+          <p>{forecast.temperature}&deg;C</p>
+          {forecast.icon && <img src={forecast.icon} alt={forecast.icon} />}
+        </div>
+      ))}
+    </div>
+  </div>
+);
 };
+
 
 export { HourlyForecast };
