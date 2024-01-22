@@ -3,9 +3,9 @@ import './style.css'; // Import the CSS file
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap styles
 
 import clearImage from '../animations/images/clearMAIN.jpg';
-import cloudyImage from '../animations/images/cloudy.png';
-import rainyImage from '../animations/images/raining.png'; // Update with the correct path and filename
-import snowyImage from '../animations/images/snowing.png'; // Update with the correct path and filename
+import cloudyImage from '../animations/images/cloudMAIN.png';
+import rainyImage from '../animations/images/rainMAIN.png';
+import snowyImage from '../animations/images/snowMAIN.png';
 
 
 const HourlyForecast = () => {
