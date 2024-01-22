@@ -2,17 +2,6 @@
     background: white;
 }
 
-/*#cancel {
-    background-color: lightgray;
-    color: black;
-}
-
-#done {
-    border-color: black;
-    color: black;
-    background-color: #FFDB6D;
-}*/
-
 #temperatureSlider {
     cursor: pointer;
 }
