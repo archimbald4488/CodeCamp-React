@@ -26,7 +26,7 @@ const HourlyForecast = () => {
     } else if (lowerCasedDescription.includes('rain')) {
       return 'linear-gradient(to bottom, #4682B4, #1E90FF)';
     } else if (lowerCasedDescription.includes('snow')) {
-      return 'linear-gradient(to bottom, #FFFACD, #F0E68C)';
+      return 'linear-gradient(to bottom, #EDF5F0, #C3C8C4)';
     } else {
       return 'linear-gradient(to bottom, #87CEEB, #1E90FF)';
     }
