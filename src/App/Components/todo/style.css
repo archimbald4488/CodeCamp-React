@@ -1,4 +1,12 @@
  .btn-xl { 
-    size:20px;
-    padding: 100px;
+    padding: 30px;
+    width: 150px;
+    height: 55px;
+}
+#todo-text {
+    font-size: 30px;
+}
+.h6 {
+    font-style:italic;
+    padding-bottom:15px;
 }
