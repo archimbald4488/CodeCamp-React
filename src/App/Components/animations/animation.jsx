@@ -1,9 +1,9 @@
 import "./styles.css";
-import { Snowing } from "./snowing";
-import { Raining } from "./raining";
-import { Windy } from "./windy";
-import { Sunny } from "./sunny";
-import { Cloudy } from "./cloudy";
+import { Snowing } from "./Snowing";
+import { Raining } from "./Raining";
+import { Windy } from "./Windy";
+import { Sunny } from "./Sunny";
+import { Cloudy } from "./Cloudy";
 import Snow from "./images/snowing.png";
 import Rain from "./images/raining.png";
 import Wind from "./images/windy.png";
