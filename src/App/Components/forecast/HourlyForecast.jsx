@@ -83,11 +83,11 @@ const HourlyForecast = () => {
   }, [cityId, apiKey]);
 
   return (
-    <div className="weather-forecast container" style={{ background: backgroundGradient, height: '80vh', borderRadius: '5px' }}>
+    <div className="weather-forecast container" style={{ background: backgroundGradient, borderRadius: '5px' }}>
       <div className="current-weather" style={{ background: getInfoSectionBackgroundGradient(currentWeather.description) }}>
         <h2>{cityName}</h2>
         {weatherimage && <img src={weatherimage} alt="Current Weather Icon" />}
-        <p>Temperature: {currentWeather.temperature}&deg;C</p>
+        <p style={{ marginTop: "20px" }}>Temperature: {currentWeather.temperature}&deg;C</p>
         <p>Wind: {currentWeather.wind} m/s</p>
         <p>Humidity: {currentWeather.humidity}%</p>
         <p>{currentWeather.description}</p>
