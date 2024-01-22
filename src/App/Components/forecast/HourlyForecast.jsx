@@ -17,7 +17,7 @@ const HourlyForecast = () => {
 
   // function for current weather section
   const getInfoSectionBackgroundGradient = (weatherDescription) => {
-    const lowerCasedDescription = weatherDescription.toLowerCase();
+    const lowerCasedDescription = (weatherDescription ?? '').toLowerCase();
 //logic for dynamic background based on description
     if (lowerCasedDescription.includes('clear')) {
       return 'linear-gradient(to bottom, #87CEEB, #1E90FF)';
