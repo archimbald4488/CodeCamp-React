@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import './style.css'; // Import the CSS file
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap styles
 
-import clearImage from '../animations/images/clearMAIN.jpg';
-import cloudyImage from '../animations/images/cloudMAIN.png';
-import rainyImage from '../animations/images/rainMAIN.png';
+import clearImage from '../animations/images/clearMAIN2.jpg';
+import cloudyImage from '../animations/images/cloudMAIN2.png';
+import rainyImage from '../animations/images/rainMAIN2.png';
 import snowyImage from '../animations/images/snowMAIN2.png';
 
 

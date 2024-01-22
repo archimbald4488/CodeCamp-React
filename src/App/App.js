@@ -6,7 +6,7 @@ import { Textbox } from './Components/textbox/Textbox.jsx';
 import { Todos } from './Components/todo/Todos.jsx';
 import { HourlyForecast } from './Components/forecast/HourlyForecast.jsx';
 import {Animation} from './Components/animations/animation.jsx';
-import Button from 'react-bootstrap/Button'
+import { Button, Alert } from 'react-bootstrap'
 import { CustomTask } from './Components/customtask/CustomTask.jsx';
 console.log("root called")
 
@@ -16,6 +16,7 @@ function App() {
 
   const [weatherData, setWeatherData] = useState(null);
   const [showCustomTask, setShowCustomTask] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);  
   //const [customTasks, setCustomTasks] = useState([]);
   /* today is a single object of weather data*/
   const [today, setToday] = useState(null);
@@ -58,24 +59,26 @@ function App() {
   }
 
   const handleOpenCustomTask = () => {
-    console.log("Opening Custom Task");
     setShowCustomTask(true);
   };
   
   const handleCloseCustomTask = () => {
-    console.log("Closing Custom Task");
     setShowCustomTask(false);
   };
 
   const handleDoneCustomTask = (newTask) => {
     //setCustomTasks([...customTasks, newTask]); //can be used to implement the new tasks
     setShowCustomTask(false);
+    setShowConfirmation(true); // Show confirmation message
+    setTimeout(() => {
+      setShowConfirmation(false);
+    }, 3000);
   };
 
   return (
     <div className="App" id={today.weatherType}>
       <div className="main-view" id={today.weatherType}>
-        <div className="row">
+        <div className="row" style={{ height: '100vh' }}>
           {/* First column for the todos button and message */}
           <div className="col-lg-4" id="col1">
             <Textbox className="h1" message="Welcome!"></Textbox>
@@ -84,13 +87,13 @@ function App() {
             <br></br>
             <Todos weatherType={today.weatherType} temperature={today.temperature}/>
           </div>
-          <div className='col-lg-4' id="col2" style={{  height: '100vh' }}>
-  <HourlyForecast></HourlyForecast>
-</div>
+          <div className='col-lg-4' id="col2">
+            <HourlyForecast></HourlyForecast>
+          </div>
 
 
           <div className='col-lg-4'>
-            <div className="text-end" style={{ marginRight: '5px', marginTop: '5px'}}>
+            <div className="text-end" style={{ marginRight: '5px', marginTop: '5px', marginBottom: '10px'}}>
               {/* Button for custom task! */}
               <div className="btn-group" role="group">
               <Button onClick={handleOpenCustomTask} className="btn btn-light btn-sm">
@@ -103,6 +106,9 @@ function App() {
             </div>
             {/* CustomTask component */}
             {showCustomTask && <CustomTask handleClose={handleCloseCustomTask} show={showCustomTask} onDone={handleDoneCustomTask}/>}
+            <Alert show={showConfirmation} variant="success">
+                    Task registered!
+            </Alert>
             <div className="container">
               <Animation weatherClassName={weatherClassName}></Animation>
             </div>

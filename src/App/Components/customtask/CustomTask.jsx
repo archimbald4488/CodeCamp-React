@@ -15,7 +15,7 @@ export const CustomTask = ({ handleClose, show, onDone }) => {
     const [taskName, setTaskName] = useState(null); 
     const [taskDescription, setTaskDescription] = useState(null); 
     const [weatherCriteria, setWeatherCriteria] = useState(null);
-    const [temperature, setTemperature] = useState(0);  
+    const [temperature, setTemperature] = useState(0);
 
     function getWeatherCriteria(weatherCriteria) {
         setWeatherCriteria(weatherCriteria);
@@ -42,6 +42,7 @@ export const CustomTask = ({ handleClose, show, onDone }) => {
           temperature: temperature,
         };
         console.log(newTask);
+        console.log("Task registered");
 
         onDone(newTask);
 
