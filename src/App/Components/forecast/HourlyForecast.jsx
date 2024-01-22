@@ -2,6 +2,12 @@ import React, { useEffect, useState } from 'react';
 import './style.css'; // Import the CSS file
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap styles
 
+import clearImage from '../animations/images/clearMAIN.jpg';
+import cloudyImage from '../animations/images/cloudy.png';
+import rainyImage from '../animations/images/raining.png'; // Update with the correct path and filename
+import snowyImage from '../animations/images/snowing.png'; // Update with the correct path and filename
+
+
 const HourlyForecast = () => {
   const [hourlyForecast, setHourlyForecast] = useState([]);
   const [currentWeather, setCurrentWeather] = useState({});
@@ -9,7 +15,7 @@ const HourlyForecast = () => {
   const [backgroundGradient, setBackgroundGradient] = useState('');
   const apiKey = '214dbdaa94ab73b0003df4cde101c069';
   const cityId = 648900;
-  let weatherimage = ""
+  let weatherimage = "";
 
   //  function for hourly forecast section
   const getHourlyForecastBackgroundGradient = () => {
@@ -19,21 +25,21 @@ const HourlyForecast = () => {
   // function for current weather section
   const getInfoSectionBackgroundGradient = (weatherDescription) => {
     const lowerCasedDescription = (weatherDescription ?? '').toLowerCase();
-//logic for dynamic background based on description
+
     if (lowerCasedDescription.includes('clear')) {
-      weatherimage = "../animations/images/clearMAIN.jpg"
+      weatherimage = clearImage;
       return 'linear-gradient(to bottom, #87CEEB, #1E90FF)';
     } else if (lowerCasedDescription.includes('cloud')) {
-      weatherimage = "../animations/images/..."
+      weatherimage = cloudyImage;
       return 'linear-gradient(to bottom, #A9A9A9, #696969)';
     } else if (lowerCasedDescription.includes('rain')) {
-      weatherimage = "../animations/images/..."
+      weatherimage = rainyImage;
       return 'linear-gradient(to bottom, #4682B4, #1E90FF)';
     } else if (lowerCasedDescription.includes('snow')) {
-      weatherimage = "../animations/images/cloudy.png"
+      weatherimage = snowyImage;
       return 'linear-gradient(to bottom, #EDF5F0, #C3C8C4)';
     } else {
-      weatherimage = "../animations/images/..."
+      
       return 'linear-gradient(to bottom, #87CEEB, #1E90FF)';
     }
   };
@@ -77,7 +83,7 @@ const HourlyForecast = () => {
   }, [cityId, apiKey]);
 
   return (
-    <div className="weather-forecast container" style={{ background: backgroundGradient, height: '80vh' ,borderRadius: '5px' }}>
+    <div className="weather-forecast container" style={{ background: backgroundGradient, height: '80vh', borderRadius: '5px' }}>
       <div className="current-weather" style={{ background: getInfoSectionBackgroundGradient(currentWeather.description) }}>
         <h2>{cityName}</h2>
         {weatherimage && <img src={weatherimage} alt="Current Weather Icon" />}
