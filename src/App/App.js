@@ -84,9 +84,10 @@ function App() {
             <br></br>
             <Todos weatherType={today.weatherType} temperature={today.temperature}/>
           </div>
-          <div className='col-lg-4' id="col2">
-            <HourlyForecast></HourlyForecast>
-          </div>
+          <div className='col-lg-4' id="col2" style={{  height: '100vh' }}>
+  <HourlyForecast></HourlyForecast>
+</div>
+
 
           <div className='col-lg-4'>
             <div className="text-end" style={{ marginRight: '5px', marginTop: '5px'}}>
