@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap styles
 import clearImage from '../animations/images/clearMAIN.jpg';
 import cloudyImage from '../animations/images/cloudMAIN.png';
 import rainyImage from '../animations/images/rainMAIN.png';
-import snowyImage from '../animations/images/snowMAIN.png';
+import snowyImage from '../animations/images/snowMAIN2.png';
 
 
 const HourlyForecast = () => {
