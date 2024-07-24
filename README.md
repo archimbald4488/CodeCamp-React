@@ -2,6 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
 **App.js is the main application file under the src directory, routed to with index.js.**
 
 ## Available Scripts
